@@ -20,6 +20,15 @@ django-admin startproject djale # i created this directory like this
 > [`djale/urls.py`](djale/urls.py)
 > Include all Project-URLs (routing)
 
+```python3
+# Comment The Csrf. It's a topicon another chapter.. later
+MIDDLEWARE = [
+    # ...
+    # 'django.middleware.csrf.CsrfViewMiddleware',
+    # ...
+]
+```
+
 
 ## Create an App in the project
 

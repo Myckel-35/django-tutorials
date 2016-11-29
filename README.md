@@ -7,3 +7,4 @@ This is just a place for all the examples in the book.
 ## Notes
 
 * [Chapter 2](002-notes.md)
+* [Chapter 3](003-notes.md)
