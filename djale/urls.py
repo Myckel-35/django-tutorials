@@ -15,7 +15,10 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+import TasksManager.views.index
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^$', TasksManager.views.index.page),
+    url(r'^index$', TasksManager.views.index.page),
 ]
