@@ -54,7 +54,9 @@ ROOT_URLCONF = 'djale.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'TasksManager/templates')
+            ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
