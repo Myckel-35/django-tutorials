@@ -236,4 +236,8 @@ For urls with params this syntax is valid:
 {% endblock %}
 ```
 
+[More on 'extends' ...](https://docs.djangoproject.com/en/1.10/ref/templates/builtins/#extends)
+
+[See 'include' for Snippets ...](https://docs.djangoproject.com/en/1.10/ref/templates/builtins/#include)
+
 ## Static Files in Templates
