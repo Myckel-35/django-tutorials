@@ -1,4 +1,6 @@
-[Back](README.md)
+[Index](README.md)
+[Back](002-notes.md)
+[Next](004-notes.md)
 
 # Notes for Chapter 3
 
