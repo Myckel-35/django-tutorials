@@ -104,3 +104,65 @@ def page(req):
 ```
 
 ## Next: Templatefilters
+
+[`TasksManager/templates/en/public/index.html`](TasksManager/templates/en/public/index.html)
+```HTML
+{# ... #}
+<p>{{ "HaLLo welt" }}</p>{# Normal #}
+<p>{{ "HaLLo welt" | lower }}</p>{# Everything small #}
+<p>{{ "HaLLo welt" | upper }}</p>{# Everything big #}
+<p>{{ "HaLLo welt" | capfirst }}</p>{# Only the first letter big #}
+{# ... #}
+```
+
+Just read pluralize filter. Doesn't tested.
+
+## XSS and Autoescape
+
+Autoescape is by default enabled! (some older versions not)
+
+```Python
+vars = {
+  'js_on': "<script>console.log('autoescape on');</script>",
+  'js_off': "<script>console.log('autoescape off');</script>",
+  #...
+  }
+```
+
+```HTML
+{# Manual autoescape example #}
+{% autoescape on %}
+<p>{{ js_on }}</p>
+{# {{ js_on|safe }} would execute the code #}
+{% endautoescape %}
+{% autoescape off %}
+<p>{{ js_off }}</p>
+{# {{ js_off|escape }} would escape the code #}
+{% endautoescape %}
+```
+
+This works only on Variables. If you use a String like `{{ "hello" }}` this wouldn't work.
+
+## Linebreaksfilter
+
+```Python
+text = <<<ENDL
+Hi,
+
+this is just a text with linebreaks
+ENDL
+# render
+```
+
+```HTML
+{{ text|linebreaks }}
+```
+
+## Truncated String
+
+```HTML
+<p>{{ "This is a far too long text"|truncatechars:20 }}</p>
+```
+Result: `This is a far too...`
+
+## Creating DRY URLs

@@ -8,6 +8,18 @@
     <h1>
       {{ hw }}
     </h1>
+    <p>{{ "This is a far too long text"|truncatechars:20 }}</p>
+    <p>{{ "HaLLo welt" }}</p>{# Normal #}
+    <p>{{ "HaLLo welt" | lower }}</p>{# Everything small #}
+    <p>{{ "HaLLo welt" | upper }}</p>{# Everything big #}
+    <p>{{ "HaLLo welt" | capfirst }}</p>{# Only the first letter of the first word big, rest normal #}
+    {# Manual autoescape example #}
+    {% autoescape on %}
+    <p>{{ js_on }}</p>
+    {% endautoescape %}
+    {% autoescape off %}
+    <p>{{ js_off }}</p>
+    {% endautoescape %}
     <article>
       My age is {{ my_age }}.
       {% if my_age < 10 %}
