@@ -2,4 +2,9 @@ from django.shortcuts import render
 
 # Create your views here.
 def page(req):
-    return render(req, 'en/public/index.html')
+    vars = {
+      'hw': "Hallo Welt :)",
+      'my_age': 31,
+      'capitals': ["Berlin", "London", "Paris", "Washington"]
+      }
+    return render(req, 'en/public/index.html', vars)

@@ -6,10 +6,23 @@
   </head>
   <body>
     <h1>
-      Hello World Django
+      {{ hw }}
     </h1>
     <article>
-      Hello world !
+      My age is {{ my_age }}.
+      {% if my_age < 10 %}
+        You are a child.
+      {% elif my_age < 18 %>
+        You are a teenager.
+      {% else %}
+        You are an adult.
+      {% endif %}
     </article>
+    <h2>Some capitals</h2>
+    <ul>
+      {% for city in capitals %}
+        <li>{{ city }}</li>
+      {% endfor %}
+    </ul>
   </body>
 </html>
