@@ -16,9 +16,11 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 import TasksManager.views.index
+import TasksManager.views.connection
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', TasksManager.views.index.page),
+    url(r'^$', TasksManager.views.index.page, name="public_index"),
     url(r'^index$', TasksManager.views.index.page),
+    url(r'^connection$', TasksManager.views.connection.page, name="public_connection"),
 ]

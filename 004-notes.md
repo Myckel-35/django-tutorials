@@ -166,3 +166,39 @@ ENDL
 Result: `This is a far too...`
 
 ## Creating DRY URLs
+
+added new url '/connection':
+
+* edited: added url [`djale/urls.py`](djale/urls.py)
+* created: [`TasksManager/views/connection.py`](TasksManager/views/connection.py)
+* created: [`TasksManager/templates/en/public/connection.html`](TasksManager/templates/en/public/connection.html)
+
+[`djale/urls.py`](djale/urls.py)
+```Python
+urlpatterns = [
+    url(r'^admin/', admin.site.urls),
+    url(r'^$', TasksManager.views.index.page, name="public_index"),
+    url(r'^index$', TasksManager.views.index.page),
+    url(r'^connection$', TasksManager.views.connection.page, name="public_connection"),
+]
+```
+
+now we give two urls names: `public_index` and `public_connection`
+
+
+[`TasksManager/templates/en/public/connection.html`](TasksManager/templates/en/public/connection.html)
+```Html
+<a href="{% url 'public_index' %}">Main</a>,
+<a href="{% url 'public_connection' %}">Connection</a>
+```
+
+Now we can use these names for our hrefs.
+
+For urls with params this syntax is valid:
+
+```Html
+<a href="{% url 'one_param_site' param1 %}">Main</a>,
+<a href="{% url 'two_param_site' param1, param2 %}">Connection</a>
+```
+
+## Extending the templates
