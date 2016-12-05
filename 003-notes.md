@@ -37,6 +37,8 @@ python3 manage.py runserver
 
 ## create our hello world site
 
+A note for all MVC-ler. A View is similar to a Controller in MVC.
+
 [`djale/urls.py`](djale/urls.py)
 ```python3
 ...

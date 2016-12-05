@@ -1,10 +1,10 @@
 [Index](README.md)
-[Back](README.md)
+[Back](#)
 [Next](003-notes.md)
 
 # Notes for Chapter 2
 
-Installation: `pip install django==="1.6"` _or just the newest_
+Installation: `pip install django==="1.10"` (1.6 used in the book)
 
 
 ## Create Project
