@@ -7,19 +7,19 @@ This is just a Notebook for myself. Buy this awesome book at [packtpub.com](http
 ## Module 1 - Notes
 
 - [Chapter 2](002-notes.md)
-..- Quickinstall via pip
-..- Create Project
-..- Create App
+  - Quickinstall via pip
+  - Create Project
+  - Create App
 - [Chapter 3](003-notes.md)
-..- URL-Definitions
-..- Regexpnotes
-..- Run the Server
-..- First View
+  - URL-Definitions
+  - Regexpnotes
+  - Run the Server
+  - First View
 - [Chapter 4](004-notes.md)
-..- Templates
-..- Vars, Loops, Ifs
-..- Templatefilters (upper ...)
-..- Autoescape (disable XSS)
-..- Linebreaks, Truncate
-..- Named URLs
-..- Extending Template
+  - Templates
+  - Vars, Loops, Ifs
+  - Templatefilters (upper ...)
+  - Autoescape (disable XSS)
+  - Linebreaks, Truncate
+  - Named URLs
+  - Extending Template
