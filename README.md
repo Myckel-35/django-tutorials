@@ -23,3 +23,4 @@ This is just a Notebook for myself. Buy this awesome book at [packtpub.com](http
   - Linebreaks, Truncate
   - Named URLs
   - Extending Template
+  - Static Files

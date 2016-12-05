@@ -202,3 +202,38 @@ For urls with params this syntax is valid:
 ```
 
 ## Extending the templates
+
+[`TasksManager/templates/en/public/base.html`](TasksManager/templates/en/public/base.html)
+```HTML
+<html>
+  <body>
+    {% block title %}<h1>Title in title block</h1>{% endblock %}
+    <p>BASE.HTML START</p>
+    {% block content %}{% endblock %}
+    <p>BASE.HTML ENDE</p>
+  </body>
+</html>
+```
+
+[`TasksManager/templates/en/public/index.html`](TasksManager/templates/en/public/index.html)
+```HTML
+{% extends "en/public/base.html" %}
+
+{% block title %}
+<p>block title: before super</p>
+{{ block.super }}
+<p>block title: after super</p>
+{% endblock %}
+
+{# RESULT of titleblock
+<p>block title: before super</p>
+<h1>Title in title block</h1>
+<p>block title: after super</p>
+#}
+
+{% block content %}
+{# ... normal content ... #}
+{% endblock %}
+```
+
+## Static Files in Templates
