@@ -25,6 +25,6 @@ DATABASES = {
 
 ## Migrations with South [DEPRECATED]
 
-[From Django 1.7 upwards (here 1.10) Django has migrations built in!](south.aeracode.org)
+[From Django 1.7 upwards (here 1.10) Django has migrations built in!](http://south.aeracode.org)
 
 ## Create simple models
