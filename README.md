@@ -25,3 +25,7 @@ This is just a Notebook for myself. Buy this awesome book at [packtpub.com](http
   - Extending Template
   - Static Files
 - [Chapter 5](005-notes.md)
+  - Models
+  - Database-Setup
+  - South deprecated from Django 1.7 on
+  - Simple Models
