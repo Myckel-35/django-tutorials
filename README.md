@@ -24,3 +24,4 @@ This is just a Notebook for myself. Buy this awesome book at [packtpub.com](http
   - Named URLs
   - Extending Template
   - Static Files
+- [Chapter 5](005-notes.md)

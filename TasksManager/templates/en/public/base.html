@@ -1,4 +1,7 @@
-<html>
+{% load static %}<html>
+  <head>
+    <link rel="stylesheet" href="{% static "css/base.css" %}">
+  </head>
   <body>
     {% block title %}<h1>Title in title block</h1>{% endblock %}
     <p>BASE.HTML START</p>

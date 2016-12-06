@@ -1,6 +1,6 @@
 [Index](README.md)
 [Back](003-notes.md)
-[Next](#)
+[Next](005-notes.md)
 
 # Notes for Chapter 4
 
@@ -241,3 +241,33 @@ For urls with params this syntax is valid:
 [See 'include' for Snippets ...](https://docs.djangoproject.com/en/1.10/ref/templates/builtins/#include)
 
 ## Static Files in Templates
+
+[Static files (CSS, JavaScript, Images)](https://docs.djangoproject.com/en/1.10/howto/static-files/)
+let's try (and the generated `{% static "TasksManager/css/base.css" %}` doesn't work like in the docs of 1.10)
+
+[`djale/settings.py`](djale/settings.py)
+```python3
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'TasksManager/static')
+    ]
+```
+
+[`TasksManager/static/css/base.css`](TasksManager/static/css/base.css)
+```CSS
+h1 {
+  /* i make the font of headers monospace and red */
+  color: #f00;
+  font-family: monospace;
+}
+```
+
+[`TasksManager/templates/en/public/base.html`](TasksManager/templates/en/public/base.html)
+```HTML
+<html>
+  <head>
+    <link rel="stylesheet" href="{% static "css/base.css" %}">
+  </head>
+  {# ... #}
+</html>
+```

@@ -1,0 +1,5 @@
+h1 {
+  /* i make the font of headers monospace and red */
+  color: #f00;
+  font-family: monospace;
+}
