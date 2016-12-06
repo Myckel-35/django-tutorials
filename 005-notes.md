@@ -8,6 +8,18 @@ Django uses [ORM](https://en.wikipedia.org/wiki/Object-relational_mapping)
 
 [Django-Docs ORM](https://docs.djangoproject.com/en/1.10/topics/db/)
 
+## Add TasksManager to installed Apps
+
+[`djale/settings.py`](djale/settings.py)
+```Python3
+# Application definition
+
+INSTALLED_APPS = [
+    # ...
+    'TasksManager',
+]
+```
+
 ## Settings
 
 Default sqlite3.
@@ -44,7 +56,7 @@ class UserProfile(models.Model):
     last_connection = models.DateTimeField(verbose_name="Date of last connection", null=True, default=None, blank=True)
     email = models.EmailField(verbose_name="Email")
     years_seniority = models.IntegerField(verbose_name="Seniority", default=0)
-    date_created = models.DateField(verbose_name="Date of Birthday", auto_nod_add=True)
+    date_created = models.DateField(verbose_name="Date of Birthday", auto_now_add=True)
 ```
 
 > `verbose_name=`
@@ -82,6 +94,48 @@ class Project(models.Model):
 ```
  > good pracitce would define a relationship for `client_name`
 
-## Relationships between models
+## Migrate to DB
 
+```
+$ python manage.py makemigrations
+Migrations for 'TasksManager':
+  TasksManager/migrations/0001_initial.py:
+    - Create model Project
+    - Create model UserProfile
+
+# before megrating it is possible to edit the megrationfiles
+
+$ python manage.py migrate
+Operations to perform:
+  Apply all migrations: TasksManager, admin, auth, contenttypes, sessions
+Running migrations:
+  Applying TasksManager.0001_initial... OK
+```
+
+[The migration: `TasksManager/migrations/0001_initial.py`](TasksManager/migrations/0001_initial.py)
+
+## Excurse - Django Shell (iPython)
+
+```
+$ python manage.py shell
+
+>>> from TasksManager.models import Project
+
+# Create a new Project
+>>> p = Project()
+>>> p.title = "Project X"
+>>> p.description = "Top secret project. WARNING"
+>>> p.client_name = "--- NOT LISTED ---"
+>>> p.save()
+
+# Load all
+>>> Project.objects.all()
+->  <QuerySet [<Project: Project object>]>
+# like an array
+
+# Load first
+>>> x = Project.objects.first()
+>>> print(x.title)
+-> "Project X"
+```
 

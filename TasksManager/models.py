@@ -9,7 +9,7 @@ class UserProfile(models.Model):
     last_connection = models.DateTimeField(verbose_name="Date of last connection", null=True, default=None, blank=True)
     email = models.EmailField(verbose_name="Email")
     years_seniority = models.IntegerField(verbose_name="Seniority", default=0)
-    date_created = models.DateField(verbose_name="Date of Birthday", auto_nod_add=True)
+    date_created = models.DateField(verbose_name="Date of Birthday", auto_now_add=True)
 
 class Project(models.Model):
     title = models.CharField(max_length=50, verbose_name="Title")
