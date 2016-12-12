@@ -11,6 +11,12 @@ class UserProfile(models.Model):
     years_seniority = models.IntegerField(verbose_name="Seniority", default=0)
     date_created = models.DateField(verbose_name="Date of Birthday", auto_now_add=True)
 
+class Supervisor(UserProfile):
+    specialisation = models.CharField(max_length=50, verbose_name="Specialisation")
+
+class Developer(UserProfile):
+    his_supervisor = models.ForeignKey(Supervisor, verbose_name="Supervisor")
+
 class Project(models.Model):
     title = models.CharField(max_length=50, verbose_name="Title")
     description = models.CharField(max_length=1000, verbose_name="Description")
@@ -22,4 +28,5 @@ class Task(models.Model):
     time_elapsed = models.IntegerField(verbose_name="Elapsed time", null=True, default=None, blank=True)
     importance = models.IntegerField(verbose_name="Importance")
     project = models.ForeignKey(Project, verbose_name="Project", null=True, default=None, blank=True)
-    app_user = models.ForeignKey(UserProfile, verbose_name="User")
+    developer = models.ForeignKey(Developer, verbose_name="User")
+

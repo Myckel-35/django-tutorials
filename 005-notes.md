@@ -159,3 +159,27 @@ class Task(models.Model):
 - A task must relate to a UserProfile `null=False`
 
 ## Extending models
+
+[`TasksManager/models.py`](TasksManager/models.py)
+```Python3
+class Supervisor(UserProfile):
+    specialisation = models.CharField(max_length=50, verbose_name="Specialisation")
+
+class Developer(UserProfile):
+    his_supervisor = models.ForeignKey(Supervisor, verbose_name="Supervisor")
+```
+originally the `his_supervisor` field called `supervisor`. But this throws an error (nameconflict) on
+running `pyhton manage.py makemigrations`.
+
+[`TasksManager/models.py`](TasksManager/models.py)
+```Python3
+class Task(models.Model):
+    # ...
+    # app_user = models.ForeignKey(UserProfile, verbose_name="User")
+    developer = models.ForeignKey(Developer, verbose_name="User")
+```
+
+This was a little bit tricky to migrate, because "default" is missing. First remove the `app_user`
+makemigration and then add `developer` field and makemigration.
+
+## The admin module
