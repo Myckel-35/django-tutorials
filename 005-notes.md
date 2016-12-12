@@ -139,3 +139,23 @@ $ python manage.py shell
 -> "Project X"
 ```
 
+## Relationship between Models
+
+Example of `one-to-many`. One Task belongs to a project but a project can have many tasks.
+The other type of relationship is the `one-to-one` and `many-to-many`
+
+[`TasksManager/models.py`](TasksManager/models.py)
+```Python3
+class Task(models.Model):
+    title = models.CharField(max_length=50, verbose_name="Title")
+    description = models.CharField(max_length=1000, verbose_name="Description")
+    time_elapsed = models.IntegerField(verbose_name="Elapsed time", null=True, default=None, blank=True)
+    importance = models.IntegerField(verbose_name="Importance")
+    project = models.ForeignKey(Project, verbose_name="Project", null=True, default=None, blank=True)
+    app_user = models.ForeignKey(UserProfile, verbose_name="User")
+```
+
+- A task must not related to a project `null=True`
+- A task must relate to a UserProfile `null=False`
+
+## Extending models
