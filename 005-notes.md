@@ -183,3 +183,27 @@ This was a little bit tricky to migrate, because "default" is missing. First rem
 makemigration and then add `developer` field and makemigration.
 
 ## The admin module
+
+Install the module: [`djale/settings.py`](djale/settings.py) - `INSTALLED_APPS` include `django.contrib.admin`
+
+[`djale/urls.py`](djale/urls.py)
+```Python3
+# ...
+from django.contrib import admin
+# admin.autodiscover()
+# autodiscover:
+#   Typically you won’t need to call this function directly
+#   as AdminConfig calls it when Django starts.
+# ...
+
+urlpatterns = [
+    url(r'^admin/', admin.site.urls),
+    # ...
+]
+```
+
+Create a superuser.
+
+```Bash
+$ python3 manage.py createsuperuser
+```
