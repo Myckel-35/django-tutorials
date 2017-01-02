@@ -32,3 +32,7 @@ This is just a Notebook for myself. Buy this awesome book at [packtpub.com](http
   - Simple Models
   - Migrations
   - DjangoShell
+  - Relationship between Models
+  - Extending Models
+  - Admin Module
+  - Create Superuser
