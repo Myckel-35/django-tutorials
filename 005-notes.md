@@ -222,4 +222,7 @@ admin.site.register(Supervisor)
 admin.site.register(Developer)
 ```
 
-NEXT: Using the module
+Seems that also the Usermanagement could be realized with the admin module?!
+So less work!
+
+## Advanced usage of models
