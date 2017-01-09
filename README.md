@@ -36,3 +36,7 @@ This is just a Notebook for myself. Buy this awesome book at [packtpub.com](http
   - Extending Models
   - Admin Module
   - Create Superuser
+  - Add models to Admin Module
+  - Multiple relationships to the same model
+  - Model use of `__str__`
+- [Chapter 6](006-notes.md)
