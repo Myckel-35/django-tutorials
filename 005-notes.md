@@ -226,3 +226,28 @@ Seems that also the Usermanagement could be realized with the admin module?!
 So less work!
 
 ## Advanced usage of models
+
+two or more relationships on the same model (just an example).
+The related name must be diffrent.
+
+```Python3
+developer1 = models.ForeignKey(Developer, verbose_name="User", related_name="dev1")
+developer2 = models.ForeignKey(Developer, verbose_name="User", related_name="dev2")
+```
+
+Magic-Method `__str__` in a model will help in a html-list item. Example in Admin-Module Listview:
+
+[`TasksManager/models.py`](TasksManager/models.py)
+```Python3
+class UserProfile(models.Model):
+    name = models.CharField(max_length=50, verbose_name="Name")
+    # ...
+    email = models.EmailField(verbose_name="Email")
+    # ...
+
+    def __str__ (self):
+        return "{name} ({email})".format(name=self.name,
+                                         email=self.email)
+```
+
+Now in every list this would be the format for the preview.
