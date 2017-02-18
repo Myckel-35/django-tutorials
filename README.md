@@ -43,3 +43,4 @@ This is just a Notebook for myself. Buy this awesome book at [packtpub.com](http
   - Create a new Model-Instance and save it
   - List models in a view
   - Use some filter on Model-search like exact, contains, case-insensitive
+  - Use locals() for render() in your View instead of giving a hash

@@ -93,3 +93,18 @@ pob.filter(client_name__icontains="m") # contains case-insensitive
 ```
 [more ...](https://docs.djangoproject.com/en/1.10/topics/db/queries/#retrieving-specific-objects-with-filters)
 
+## Bored of giving render a hash? Use locals()
+
+Instead of give render a hash with all vars
+you could use `locals()`.
+
+```Python3
+# ...
+def page(req):
+  var_a = "hello"
+  var_b = "world"
+  
+  # return render(req, '.../index.html', {'var_a': var_a, 'var_b': var_b}
+  return render(req, '.../index.html', locals())
+```
+
