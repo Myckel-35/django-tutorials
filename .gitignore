@@ -19,3 +19,4 @@
 #
 # $ deactivate
 djale_env/
+.venv/
