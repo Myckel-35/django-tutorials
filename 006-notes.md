@@ -36,6 +36,8 @@ def page(request):
 >
 > [read more of the shell ...](005-notes.md)
 
+## Let's list our projects
+
 [`TasksManager/views/index.py`](TasksManager/views/index.py)
 ```Python
 from TasksManager.models import Project
