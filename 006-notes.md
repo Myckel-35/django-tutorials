@@ -80,3 +80,16 @@ Project list
 {% endblock %}
 ```
 
+You could also filter the projects:
+
+```Python3
+pob = Project.objects
+
+pob.filter(client_name="Me")           # exact
+pob.filter(client_name__exact="Me")    # exact word (default)
+pob.filter(client_name__iexact="me")   # exact case-insensitive
+pob.filter(client_name__contains="M")  # contains
+pob.filter(client_name__icontains="m") # contains case-insensitive
+```
+[more ...](https://docs.djangoproject.com/en/1.10/topics/db/queries/#retrieving-specific-objects-with-filters)
+

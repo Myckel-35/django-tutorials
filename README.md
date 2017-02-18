@@ -40,3 +40,6 @@ This is just a Notebook for myself. Buy this awesome book at [packtpub.com](http
   - Multiple relationships to the same model
   - Model use of `__str__`
 - [Chapter 6](006-notes.md)
+  - Create a new Model-Instance and save it
+  - List models in a view
+  - Use some filter on Model-search like exact, contains, case-insensitive
