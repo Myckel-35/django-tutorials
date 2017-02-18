@@ -3,9 +3,7 @@
     <link rel="stylesheet" href="{% static "css/base.css" %}">
   </head>
   <body>
-    {% block title %}<h1>Title in title block</h1>{% endblock %}
-    <p>BASE.HTML START</p>
+    <h1>{% block title %}Title in title block{% endblock %}</h1>
     {% block content %}{% endblock %}
-    <p>BASE.HTML ENDE</p>
   </body>
 </html>

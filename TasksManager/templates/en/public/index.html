@@ -1,40 +1,27 @@
 {% extends "en/public/base.html" %}
+
 {% block title %}
-<p>block title: before super</p>
-{{ block.super }}
-<p>block title: after super</p>
+Project list
 {% endblock %}
+
 {% block content %}
-<p><a href="{% url 'public_index' %}">Main</a>, <a href="{% url 'public_connection' %}">Connection</a></p>
-<h1>
-  {{ hw }}
-</h1>
-<p>{{ "This is a far too long text"|truncatechars:20 }}</p>
-<p>{{ "HaLLo welt" }}</p>{# Normal #}
-<p>{{ "HaLLo welt" | lower }}</p>{# Everything small #}
-<p>{{ "HaLLo welt" | upper }}</p>{# Everything big #}
-<p>{{ "HaLLo welt" | capfirst }}</p>{# Only the first letter of the first word big, rest normal #}
-{# Manual autoescape example #}
-{% autoescape on %}
-<p>{{ js_on }}</p>
-{% endautoescape %}
-{% autoescape off %}
-<p>{{ js_off }}</p>
-{% endautoescape %}
-<article>
-  My age is {{ my_age }}.
-  {% if my_age < 10 %}
-    You are a child.
-  {% elif my_age < 18 %>
-    You are a teenager.
-  {% else %}
-    You are an adult.
-  {% endif %}
-</article>
-<h2>Some capitals</h2>
-<ul>
-  {% for city in capitals %}
-    <li>{{ city }}</li>
-  {% endfor %}
-</ul>
+<h3>{{ action }}</h3>
+
+<table>
+  <thead>
+    <tr>
+      <td>ID</td>
+      <td>Title</td>
+    </tr>
+  </thead>
+  <tbody>
+    {% for project in all_projects %}
+    <tr>
+      <td>{{ project.id }}</td>
+      <td>{{ project.title }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
 {% endblock %}
+

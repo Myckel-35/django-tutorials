@@ -25,7 +25,7 @@ def page(request):
 > ## Quicknote
 >
 > You could also use the shell to create project instead of
-> create it without a form :)
+> create it without a form in the view. :)
 >
 > `python manage.py shell`
 >
@@ -37,5 +37,44 @@ def page(request):
 > [read more of the shell ...](005-notes.md)
 
 [`TasksManager/views/index.py`](TasksManager/views/index.py)
+```Python
+from TasksManager.models import Project
+from django.shortcuts import render
 
+def page(req):
+    all_projects = Project.objects.all()
+    vars = {'action': "Display all projects",
+            'all_projects': all_projects}
+    return render(req, 'en/public/index.html', vars)
+```
+
+[`TasksManager/templates/en/public/index.html`](TasksManager/templates/en/public/index.html)
+```Python
+{% extends "en/public/base.html" %}
+
+{% block title %}
+Project list
+{% endblock %}
+
+{% block content %}
+<h3>{{ action }}</h3>
+
+<table>
+  <thead>
+    <tr>
+      <td>ID</td>
+      <td>Title</td>
+    </tr>
+  </thead>
+  <tbody>
+    {% for project in all_projects %}
+    <tr>
+      <td>{{ project.id }}</td>
+      <td>{{ project.title }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
+```
 
