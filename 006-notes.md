@@ -31,5 +31,7 @@ def page(request):
 >
 > `>> from TasksManager.models import Project`
 > `>> new_project = ...`
+>
+> [read more of the shell ...](005-notes.md)
 
 
