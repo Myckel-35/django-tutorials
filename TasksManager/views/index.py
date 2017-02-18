@@ -1,12 +1,8 @@
+from TasksManager.models import Project
 from django.shortcuts import render
 
-# Create your views here.
 def page(req):
-    vars = {
-      'hw': "Hallo Welt :)",
-      'my_age': 31,
-      'capitals': ["Berlin", "London", "Paris", "Washington"],
-      'js_on': "<script>console.log('autoescape on');</script>",
-      'js_off': "<script>console.log('autoescape off');</script>"
-      }
+    all_projects = Project.objects.all()
+    vars = {'action': "Display all projects",
+            'all_projects': all_projects}
     return render(req, 'en/public/index.html', vars)
