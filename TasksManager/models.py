@@ -24,6 +24,9 @@ class Project(models.Model):
     title = models.CharField(max_length=50, verbose_name="Title")
     description = models.CharField(max_length=1000, verbose_name="Description")
     client_name = models.CharField(max_length=1000, verbose_name="Client name")
+
+    def __str__(self):
+        return "{} (Client: {})".format(self.title, self.client_name)
     
 class Task(models.Model):
     title = models.CharField(max_length=50, verbose_name="Title")
