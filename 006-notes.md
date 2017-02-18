@@ -79,7 +79,6 @@ Project list
 </table>
 {% endblock %}
 ```
-
 You could also filter the projects:
 
 ```Python3
@@ -93,7 +92,7 @@ pob.filter(client_name__icontains="m") # contains case-insensitive
 ```
 [more ...](https://docs.djangoproject.com/en/1.10/topics/db/queries/#retrieving-specific-objects-with-filters)
 
-## Bored of giving render a hash? Use locals()
+### Bored of giving render a hash? Use locals()
 
 Instead of give render a hash with all vars
 you could use `locals()`.
@@ -108,3 +107,18 @@ def page(req):
   return render(req, '.../index.html', locals())
 ```
 
+> Tip
+> Best practices recommend the hash-version. You would only
+> use the necessar variables
+
+### .get()
+
+`Project.objects.get(id=1)` is just like the filter but returns
+just one object. Raises an error if you don't have exact 1
+object.
+
+Instead you could use `Models.objects.filter(...).first()`
+
+## Let's give our project a View
+
+next: Using the get parameter
